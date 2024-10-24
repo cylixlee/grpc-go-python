@@ -13,11 +13,11 @@ from grpc import RpcContext
 class HelloServiceServer(HelloServiceServicer):
     def Hello(self, request: HelloRequest, context: RpcContext) -> HelloResponse:
         print(f'[HelloService] Received request "{request.name}"')
-        return HelloResponse(request.name, "hello")
+        return HelloResponse(name=request.name, greet="hello")
 
     def Goodbye(self, request: HelloRequest, context: RpcContext) -> HelloResponse:
         print(f'[HelloService] Received request "{request.name}"')
-        return HelloResponse(request.name, "goodbye")
+        return HelloResponse(name=request.name, greet="goodbye")
 
 
 def main() -> None:
