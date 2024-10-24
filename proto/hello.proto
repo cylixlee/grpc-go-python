@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "generated/api";
+
+message HelloRequest { string name = 1; }
+message HelloResponse {
+  string name = 1;
+  string greet = 2;
+}
+
+service HelloService {
+  rpc Hello(HelloRequest) returns (HelloResponse);
+  rpc Goodbye(HelloRequest) returns (HelloResponse);
+}
